@@ -61,7 +61,7 @@ public class StreamPractice {
             return Collections.emptyList();
         }
         return peopleList.stream()
-                .filter(p -> p.getSex() == Person.Sex.MAN)
+                .filter(p -> p.getSex().equals(Person.Sex.MAN))
                 .filter(p -> p.getAge() >= fromAge && p.getAge() <= toAge)
                 .collect(Collectors.toList());
     }
@@ -83,7 +83,7 @@ public class StreamPractice {
         }
         return peopleList.stream()
                 .filter(p -> p.getAge() >= fromAge)
-                .filter(p -> p.getAge() <= maleToAge && Person.Sex.MAN.equals(p.getSex())
+                .filter(p -> p.getAge() <= maleToAge && p.getSex().equals(Person.Sex.MAN)
                         || p.getAge() <= femaleToAge && p.getSex().equals(Person.Sex.WOMAN))
                 .collect(Collectors.toList());
     }
